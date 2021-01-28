@@ -11,7 +11,7 @@
             "preLaunchTask": "build",
             "program": "${workspaceFolder}/src/BlazorApp/bin/Debug/net5.0/BlazorApp.dll",
             "args": [],
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/src/BlazorApp/",
             "stopAtEntry": false,
             "serverReadyAction": {
                 "action": "openExternally",
