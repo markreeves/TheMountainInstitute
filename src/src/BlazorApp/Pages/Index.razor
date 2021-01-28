@@ -1,0 +1,66 @@
+﻿@page "/"
+        
+@inject NavigationManager NavigationManager
+
+<div class="row">
+    <div class="col-8">
+        <h1>The Mountain Institute</h1>
+    </div>
+    
+    <div class="col-4">
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm jumbotron mx-1" @onclick="navToFieldGuide">
+                <div class="media">
+                    <img class="mr-3" src="/Images/NatureMapLichen.png" asp-append-version="true" width="80px" />
+                    <div class="media-body">
+                        <h5 class="mt-0"><i class="fas fa-eye"></i> Nature Guide</h5>
+                        Discover and Identify hundreds of different Plant, Animal anf Fungi species that can be found in the moutnains of the United Kingdom.
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm jumbotron mx-1" @onclick="navToFieldGuide">
+                <div class="media">
+                    <img class="mr-3" src="/Images/NatureMapLichen.png" asp-append-version="true" width="80px" />
+                    <div class="media-body">
+                        <h5 class="mt-0"><i class="fas fa-mountain"></i> Mountain Logbook</h5>
+                        Discover and Identify hundreds of different Plant, Animal anf Fungi species that can be found in the moutnains of the United Kingdom.
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm jumbotron mx-1" @onclick="navToFieldGuide">
+                <div class="media">
+                    <img class="mr-3" src="/Images/NatureMapLichen.png" asp-append-version="true" width="80px" />
+                    <div class="media-body">
+                        <h5 class="mt-0"><i class="fas fa-camera"></i> Photo Galleries</h5>
+                        Discover and Identify hundreds of different Plant, Animal anf Fungi species that can be found in the moutnains of the United Kingdom.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @code{
+        //need to be expanded so each option has its own method for redirect.
+        private void navToFieldGuide()
+        {
+            NavigationManager.NavigateTo("genus");
+        }
+
+        private void navTologbook()
+        {
+            NavigationManager.NavigateTo("genus");
+        }
+
+        private void navTophotos()
+        {
+            NavigationManager.NavigateTo("genus");
+        }
+    }
