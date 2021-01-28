@@ -1,1 +1,1 @@
-# TheMountainInstitute
+# The Mountain Institute
