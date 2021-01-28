@@ -7,6 +7,13 @@
 	"settings": {
 		"omnisharp.loggingLevel": "warning",
 		"omnisharp.enableEditorConfigSupport": true,
-		"omnisharp.enableRoslynAnalyzers": true
+		"omnisharp.enableRoslynAnalyzers": true,
+		"files.exclude": {
+			"**/bin/": true,
+		  	"**/obj/": true,
+			"**/.vs/": true,
+			"**/node_modules/": true,
+			"**/*.csproj.user": true
+		}
 	}
 }
