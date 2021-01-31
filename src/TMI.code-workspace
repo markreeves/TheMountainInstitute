@@ -15,6 +15,42 @@
 			"**/node_modules/": true,
 			"**/*.csproj.user": true
 		},
+		"cSpell.language": "en-GB",
+		"cSpell.enableCompoundWords": true,
+		"cSpell.ignorePaths": [
+			"**/package.json",
+			"**/package-lock.json",
+			"**/launchSettings.json",
+			"**/node_modules/**",
+			"**/vscode-extension/**",
+			"**/.git/objects/**",
+			".vscode",
+			"**/TMI.code-workspace"
+		],
+		"cSpell.words": [
+			"Admin",
+			"Apps",
+			"blazor",
+			"markdownlint",
+			"nuget",
+			"pwsh",
+			"setvariable",
+			"Setup",
+			"Xunit",
+			"webassembly"
+		],
+		"todo-tree.filtering.excludeGlobs": [
+			"**/vendor/**",
+			"**/node_modules/**",
+			"**/dist/**",
+			"**/bower_components/**",
+			"**/build/**",
+			"**/.vscode/**",
+			"**/.github/**",
+			"**/_output/**",
+			"**/*.min.*",
+			"**/*.map"
+		],
 	},
 	"extensions": {
 		"recommendations": [
@@ -32,5 +68,5 @@
 			"gruntfuggly.todo-tree",
 			"shardulm94.trailing-spaces"
 		]
-	}	
+	}
 }
