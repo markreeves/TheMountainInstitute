@@ -30,7 +30,8 @@ else
     <div class="container">
         <div class="row">
             @foreach (var g in genus)
-            {
+            {   
+                //var genuspass = @g.GenusName;
                 <div class="col-sm jumbotron mx-1" >
                     <div class="media">
                         <img class="mr-3" src="/Images/NatureMapLichen.png" asp-append-version="true" width="80px" />
@@ -43,16 +44,32 @@ else
             }
         </div>
     </div>
+    
+    
+    <div class="container">
+         @foreach (var k in kingdom)
+         {
+             <p>@k.KingdomName @k.</p>
+         }
+    </div>
+    
+
 }
+
 @code {
+
+    private string gClick { get; set; } = null;
     List<GenusModel> genus;
+    List<KingdomModel> kingdom;
 
     protected override async Task OnInitializedAsync()
     {
         string sql = "select * from genus";
+        string sql2 = "select * from kingdom";
 
         genus = await _data.LoadData<GenusModel, dynamic>(sql, new { }, _config.GetConnectionString("default"));
+        kingdom = await _data.LoadData<KingdomModel, dynamic>(sql2, new { }, _config.GetConnectionString("default"));
     }
-
+    
     
 }

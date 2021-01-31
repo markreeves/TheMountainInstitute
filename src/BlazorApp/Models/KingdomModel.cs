@@ -1,7 +1,7 @@
 ﻿using System;
 namespace BlazorApp.Models
 {
-    public class PlantsModel
+    public class KingdomModel
     {
         public int Id { get; set; }
         public string KingdomName { get; set; }
