@@ -1,11 +1,14 @@
 ﻿@page "/genus"
 
-@using DataLibrary
 @using BlazorApp.Models
+@using BlazorApp.ViewModels
+@using DataLibrary
 @using Microsoft.Extensions.Configuration
+
 @inject NavigationManager NavigationManager
 @inject IDataAccess _data
 @inject IConfiguration _config
+@inject IGenusViewModel _vm
 
 <div class="row">
     <div class="col-8">
