@@ -15,6 +15,8 @@ namespace BlazorApp.ViewModels
         List<KingdomModel> Kingdom { get; set; }
 
         Task OnInitializedAsync();
+        //todo: replace with IAsyncRelayCommand from the microsoft MVVM tool kit
+        Task SwitchToKingdomViewAsync();
     }
 
     public class GenusViewModel : IGenusViewModel
@@ -38,6 +40,12 @@ namespace BlazorApp.ViewModels
 
             Genus = await _data.LoadData<GenusModel, dynamic>(sql, new { }, _config.GetConnectionString("default"));
             Kingdom = await _data.LoadData<KingdomModel, dynamic>(sql2, new { }, _config.GetConnectionString("default"));
+        }
+        
+        public async Task SwitchToKingdomViewAsync()
+        {
+            //todo: SwitchToKingdomViewAsync should change view to kingdon view and hiode genus view
+            throw new NotImplementedException();
         }
     }
 }
