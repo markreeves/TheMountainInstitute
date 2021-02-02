@@ -14,8 +14,8 @@ namespace BlazorApp.DataAccess
 
     public class GenusRepository : IGenusRepository
     {
-        private IDataAccessProvider _data;
-        private IConfiguration _config;
+        private readonly IDataAccessProvider _data;
+        private readonly IConfiguration _config;
 
         public GenusRepository(IDataAccessProvider data, IConfiguration config)
         {

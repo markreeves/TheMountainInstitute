@@ -22,9 +22,9 @@ namespace BlazorApp.ViewModels
 
     public class GenusViewModel : IGenusViewModel
     {
-        private IDataAccessProvider _data;
-        private IConfiguration _config;
-        private IGenusRepository _genusRepository;
+        private readonly IDataAccessProvider _data;
+        private readonly IConfiguration _config;
+        private readonly IGenusRepository _genusRepository;
 
         public List<GenusModel> Genus { get; set; }
         public List<KingdomModel> Kingdom { get; set; }
@@ -47,7 +47,7 @@ namespace BlazorApp.ViewModels
 
         public async Task SwitchToKingdomViewAsync()
         {
-            //todo: SwitchToKingdomViewAsync should change view to kingdon view and hiode genus view
+            //todo: SwitchToKingdomViewAsync should change view to kingdon view and hide genus view
             throw new NotImplementedException();
         }
     }
