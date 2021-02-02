@@ -13,11 +13,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
 using BlazorApp.Areas.Identity;
 using BlazorApp.Data;
-using DataLibrary;
 using BlazorApp.ViewModels;
+using BlazorApp.DataAccess;
 
+using DataLibrary;
 namespace BlazorApp
 {
     public class Startup
@@ -47,9 +49,10 @@ namespace BlazorApp
             services.AddSingleton<WeatherForecastService>();
 
             // data access ...
+            services.AddTransient<IGenusRepository, GenusRepository>();
 
             // Infrastructure ...
-            services.AddSingleton<IDataAccess, DataAccess>();
+            services.AddSingleton<IDataAccessProvider, DataAccessProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

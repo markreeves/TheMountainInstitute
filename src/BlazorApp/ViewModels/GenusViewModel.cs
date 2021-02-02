@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using BlazorApp.Models;
+using BlazorApp.DataAccess;
 using DataLibrary;
 
 namespace BlazorApp.ViewModels
@@ -21,27 +22,29 @@ namespace BlazorApp.ViewModels
 
     public class GenusViewModel : IGenusViewModel
     {
-        private IDataAccess _data;
+        private IDataAccessProvider _data;
         private IConfiguration _config;
+        private IGenusRepository _genusRepository;
 
         public List<GenusModel> Genus { get; set; }
         public List<KingdomModel> Kingdom { get; set; }
 
-        public GenusViewModel(IDataAccess data, IConfiguration config)
+        public GenusViewModel(IDataAccessProvider data, IConfiguration config, IGenusRepository genusRepository)
         {
             _data = data;
             _config = config;
+            _genusRepository = genusRepository;
         }
 
         public async Task OnInitializedAsync()
         {
-            string sql = "select * from genus";
+            Genus = await _genusRepository.GetGenusListAsync();
+
             string sql2 = "select * from kingdom";
 
-            Genus = await _data.LoadData<GenusModel, dynamic>(sql, new { }, _config.GetConnectionString("default"));
             Kingdom = await _data.LoadData<KingdomModel, dynamic>(sql2, new { }, _config.GetConnectionString("default"));
         }
-        
+
         public async Task SwitchToKingdomViewAsync()
         {
             //todo: SwitchToKingdomViewAsync should change view to kingdon view and hiode genus view
