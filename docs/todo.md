@@ -2,10 +2,6 @@
 
 <https://www.markdownguide.org/cheat-sheet>
 
-- [ ] Do the repo for Kingdom
-- [ ] Look for dead code
-- [ ] delete dead using statements
-- [ ] Remove dead files
 - [ ] add a test project
 - [ ] Do CRC card using drawIO
 
@@ -13,3 +9,8 @@
 
 - [x] get rid of data Access project
 - [x] Do the repo for genus
+- [x] Do the repo for Kingdom
+- [x] Add navToGenus to index
+- [x] deleted dead files
+- [x] Look for dead code
+- [x] delete dead using statements

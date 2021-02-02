@@ -45,11 +45,10 @@ namespace BlazorApp
             services.AddScoped<IGenusViewModel, GenusViewModel>();
 
             // services ...
-            // todo: remove weather forecast service
-            services.AddSingleton<WeatherForecastService>();
 
             // data access ...
             services.AddTransient<IGenusRepository, GenusRepository>();
+            services.AddTransient<IKingdomRepository, KingdomRepository>();
 
             // Infrastructure ...
             services.AddSingleton<IDataAccessProvider, DataAccessProvider>();

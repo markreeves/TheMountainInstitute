@@ -17,7 +17,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm jumbotron mx-1">
+            <div class="col-sm jumbotron mx-1" @onclick="navToGenus">
                 <div class="media">
                     <img class="mr-3" src="/Images/NatureMapLichen.png" asp-append-version="true" width="80px" />
                     <div class="media-body">
@@ -26,16 +26,7 @@
                     </div>
                 </div>
             </div>
-            @*<div class="col-sm jumbotron mx-1" @onclick="navToFieldGuide">
-                <div class="media">
-                    <img class="mr-3" src="/Images/NatureMapLichen.png" asp-append-version="true" width="80px" />
-                    <div class="media-body">
-                        <h5 class="mt-0"><i class="fas fa-mountain"></i> Mountain Logbook</h5>
-                        Discover and Identify hundreds of different Plant, Animal anf Fungi species that can be found in the moutnains of the United Kingdom.
-                    </div>
-                </div>
-            </div>*@
-            <div class="col-sm jumbotron mx-1">
+            <div class="col-sm jumbotron mx-1" href="#">
                 <div class="media">
                     <img class="mr-3" src="/Images/NatureMapLichen.png" asp-append-version="true" width="80px" />
                     <div class="media-body">
@@ -47,4 +38,9 @@
         </div>
     </div>
 
-    
+@code {
+    private void navToGenus()
+    {
+        NavigationManager.NavigateTo("genus");
+    }
+}
