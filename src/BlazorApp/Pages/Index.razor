@@ -17,7 +17,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm jumbotron mx-1" @onclick="navToFieldGuide">
+            <div class="col-sm jumbotron mx-1">
                 <div class="media">
                     <img class="mr-3" src="/Images/NatureMapLichen.png" asp-append-version="true" width="80px" />
                     <div class="media-body">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm jumbotron mx-1" @onclick="navToFieldGuide">
+            @*<div class="col-sm jumbotron mx-1" @onclick="navToFieldGuide">
                 <div class="media">
                     <img class="mr-3" src="/Images/NatureMapLichen.png" asp-append-version="true" width="80px" />
                     <div class="media-body">
@@ -34,8 +34,8 @@
                         Discover and Identify hundreds of different Plant, Animal anf Fungi species that can be found in the moutnains of the United Kingdom.
                     </div>
                 </div>
-            </div>
-            <div class="col-sm jumbotron mx-1" @onclick="navToFieldGuide">
+            </div>*@
+            <div class="col-sm jumbotron mx-1">
                 <div class="media">
                     <img class="mr-3" src="/Images/NatureMapLichen.png" asp-append-version="true" width="80px" />
                     <div class="media-body">
@@ -47,20 +47,4 @@
         </div>
     </div>
 
-    @code{
-        //need to be expanded so each option has its own method for redirect.
-        private void navToFieldGuide()
-        {
-            NavigationManager.NavigateTo("genus");
-        }
-
-        private void navTologbook()
-        {
-            NavigationManager.NavigateTo("genus");
-        }
-
-        private void navTophotos()
-        {
-            NavigationManager.NavigateTo("genus");
-        }
-    }
+    
