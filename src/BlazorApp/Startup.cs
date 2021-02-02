@@ -50,6 +50,7 @@ namespace BlazorApp
 
             // data access ...
             services.AddTransient<IGenusRepository, GenusRepository>();
+            services.AddTransient<IKingdomRepository, KingdomRepository>();
 
             // Infrastructure ...
             services.AddSingleton<IDataAccessProvider, DataAccessProvider>();
