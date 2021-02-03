@@ -64,6 +64,14 @@ else
 
         }
 
+<div class="container">
+    <h1>Species List</h1>
+    @foreach (var s in _vm.Species)
+    {
+        <p>@s.SpeciesName </p>
+    }
+</div>
+
         @code {
 
     protected override async Task OnInitializedAsync() => await _vm.OnInitializedAsync();

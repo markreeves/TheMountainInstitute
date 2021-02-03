@@ -13,6 +13,7 @@ namespace BlazorApp.ViewModels
     {
         List<GenusModel> Genus { get; set; }
         List<KingdomModel> Kingdom { get; set; }
+        List<SpeciesModel> Species { get; set; }
 
         Task OnInitializedAsync();
         //todo: replace with IAsyncRelayCommand from the microsoft MVVM tool kit
@@ -25,21 +26,25 @@ namespace BlazorApp.ViewModels
         private readonly IConfiguration _config;
         private readonly IGenusRepository _genusRepository;
         private readonly IKingdomRepository _KingdomRepository;
+        private readonly ISpeciesRepository _SpeciesRepository;
 
         public List<GenusModel> Genus { get; set; }
         public List<KingdomModel> Kingdom { get; set; }
+        public List<SpeciesModel> Species { get; set; }
 
-        public GenusViewModel(IDataAccessProvider data, IConfiguration config, IGenusRepository genusRepository, IKingdomRepository kingdomRepository)
+        public GenusViewModel(IDataAccessProvider data, IConfiguration config, IGenusRepository genusRepository, IKingdomRepository kingdomRepository, ISpeciesRepository SpeciesRepository)
         {
             _data = data;
             _config = config;
             _genusRepository = genusRepository;
             _KingdomRepository = kingdomRepository;
+            _SpeciesRepository = SpeciesRepository;
         }
         public async Task OnInitializedAsync()
         {
             Genus = await _genusRepository.GetGenusListAsync();
             Kingdom = await _KingdomRepository.GetKingdomListAsync();
+            Species = await _SpeciesRepository.GetSpeciesListAsync();
         }
 
         public async Task SwitchToKingdomViewAsync()
