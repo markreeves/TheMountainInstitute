@@ -53,6 +53,15 @@
 			"**/*.min.*",
 			"**/*.map"
 		],
+		"editor.fontFamily": "'Fira Code','Consolas','monospace'",
+		"editor.fontWeight": "400",
+		"editor.fontSize": 12,
+		"terminal.integrated.fontFamily": "'Fira Code','Consolas','monospace'",
+		"terminal.integrated.fontWeight": "400",
+		"terminal.integrated.fontSize": 12,
+		"editor.fontLigatures": true,
+		"workbench.colorCustomizations": { "gitlens.trailingLineForegroundColor": "#bbbaba" },
+		"trailing-spaces.syntaxIgnore": ["markdown"],
 	},
 	"extensions": {
 		"recommendations": [
