@@ -3,19 +3,21 @@ namespace BlazorApp.Models
 {
     public class SpeciesModel
     {
-        public int Id { get; set; }
-        public string SpeciesName { get; set; }
-        public string SpeciesLatinName { get; set; }
-        public string SpeciesIntro { get; set; }
-        public string SpeciesInfo { get; set; }
-        public string SpeciesImageLink { get; set; }
-        public byte[] SpeciesImage { get; set; }
-        public string SpeciesImageCredit { get; set; }
-        public string SpeciesHabitat { get; set; }
-        public string SpeciesRegions { get; set; }
-        public string SpeciesIdentifiers { get; set; }
-        public string SpeciesGenusType { get; set; }
-        public string SpeciesKingdomType { get; set; }
-        public string SpeciesProtectionType { get; set; }
+        public int Id { get; set; } = Constants.UnknownRecordID;
+        public string SpeciesName { get; set; } = string.Empty;
+        public string SpeciesLatinName { get; set; } = string.Empty;
+        public string SpeciesIntro { get; set; } = string.Empty;
+        public string SpeciesInfo { get; set; } = string.Empty;
+        public string SpeciesImageLink { get; set; } = string.Empty;
+        public string SpeciesImageCredit { get; set; } = string.Empty;
+        public string SpeciesHabitat { get; set; } = string.Empty;
+        public string SpeciesRegions { get; set; } = string.Empty;
+        public string SpeciesIdentifiers { get; set; } = string.Empty;
+        public string SpeciesGenusType { get; set; } = string.Empty;
+        public string SpeciesKingdomType { get; set; } = string.Empty;
+        public string SpeciesProtectionType { get; set; } = string.Empty;
+
+        //Todo: Add image support and initialize to empty byte array
+        //public byte[] SpeciesImage { get; set; }
     }
 }
