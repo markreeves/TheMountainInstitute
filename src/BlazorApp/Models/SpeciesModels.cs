@@ -16,5 +16,6 @@ namespace BlazorApp.Models
         public string SpeciesIdentifiers { get; set; }
         public string SpeciesGenusType { get; set; }
         public string SpeciesKingdomType { get; set; }
+        public string SpeciesProtectionType { get; set; }
     }
 }

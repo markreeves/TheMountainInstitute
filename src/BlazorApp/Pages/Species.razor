@@ -1,0 +1,51 @@
+@page "/Species"
+
+
+@using BlazorApp.ViewModels
+
+
+@inject IGenusViewModel _vm
+
+<div class="row">
+    <div class="col-8">
+        <h1>The Mountain Institute - Species</h1>
+    </div>
+
+    <div class="col-4">
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</div>
+
+
+@if (_vm.Genus == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="container">
+        @foreach (var s in _vm.Species)
+        {
+            <div class="row">
+                <div class="col-12">
+                    <h1>@s.SpeciesName </h1> <h3>@s.SpeciesLatinName</h3>
+                </div>
+                <div class="col-6">
+                    <img class="mr-3" src="/Images/NatureMapLichen.png" />
+                    <caption>@s.SpeciesImageCredit</caption>
+                </div>
+                <div class="col-6">
+                    <p><em>@s.SpeciesIntro</em></p>
+                <p>@s.SpeciesInfo</p>
+                </div>
+            </div>
+        }
+    </div>
+}
+        @code {
+
+    protected override async Task OnInitializedAsync() => await _vm.OnInitializedAsync();
+        }
