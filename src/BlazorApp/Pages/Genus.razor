@@ -1,11 +1,10 @@
 ﻿@page "/genus"
 
-@using DataLibrary
-@using BlazorApp.Models
-@using Microsoft.Extensions.Configuration
-@inject NavigationManager NavigationManager
-@inject IDataAccess _data
-@inject IConfiguration _config
+
+@using BlazorApp.ViewModels
+
+
+@inject IGenusViewModel _vm
 
 <div class="row">
     <div class="col-8">
@@ -21,7 +20,7 @@
 </div>
 
 
-@if (genus == null)
+@if (_vm.Genus == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -29,9 +28,10 @@ else
 {
     <div class="container">
         <div class="row">
-            @foreach (var g in genus)
+            @foreach (var g in _vm.Genus)
             {
-                <div class="col-sm jumbotron mx-1" >
+                //todo: SwitchToKingdomViewAsync should change view to kingdon view and hiode genus view
+                <div class="col-sm jumbotron mx-1" @onclick="(_ => _vm.SwitchToKingdomViewAsync())">
                     <div class="media">
                         <img class="mr-3" src="/Images/NatureMapLichen.png" asp-append-version="true" width="80px" />
                         <div class="media-body">
@@ -43,16 +43,28 @@ else
             }
         </div>
     </div>
-}
-@code {
-    List<GenusModel> genus;
-
-    protected override async Task OnInitializedAsync()
-    {
-        string sql = "select * from genus";
-
-        genus = await _data.LoadData<GenusModel, dynamic>(sql, new { }, _config.GetConnectionString("default"));
-    }
-
     
-}
+    
+    <div class="container">
+        <div class="row">
+            @foreach (var k in _vm.Kingdom)
+            {
+                <div class="col-sm jumbotron mx-1" @onclick="(_ => _vm.SwitchToKingdomViewAsync())">
+                    <div class="media">
+                        <img class="mr-3" src="/Images/NatureMapLichen.png" asp-append-version="true" width="80px" />
+                        <div class="media-body">
+                            <h5 class="mt-0">@k.KingdomName</h5>
+                            @k.KingdomIntro
+                        </div>
+                    </div>
+                </div>
+            }
+            </div>
+        </div>
+
+        }
+
+        @code {
+
+    protected override async Task OnInitializedAsync() => await _vm.OnInitializedAsync();
+        }
