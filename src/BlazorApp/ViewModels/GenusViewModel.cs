@@ -11,13 +11,16 @@ namespace BlazorApp.ViewModels
 {
     public interface IGenusViewModel
     {
-        List<GenusModel> Genus { get; set; }
-        List<KingdomModel> Kingdom { get; set; }
-        List<SpeciesModel> Species { get; set; }
+        List<GenusModel> Genus { get; }
+        List<KingdomModel> Kingdom { get; }
+        List<SpeciesModel> Species { get; }
+
+        bool IsLoading { get; }
+        bool ShowKingdom { get; }
 
         Task OnInitializedAsync();
         //todo: replace with IAsyncRelayCommand from the microsoft MVVM tool kit
-        Task SwitchToKingdomViewAsync();
+        Task SwitchToKingdomViewAsync(GenusModel genus);
     }
 
     public class GenusViewModel : IGenusViewModel
@@ -28,9 +31,11 @@ namespace BlazorApp.ViewModels
         private readonly IKingdomRepository _KingdomRepository;
         private readonly ISpeciesRepository _SpeciesRepository;
 
-        public List<GenusModel> Genus { get; set; }
-        public List<KingdomModel> Kingdom { get; set; }
-        public List<SpeciesModel> Species { get; set; }
+        public List<GenusModel> Genus { get; private set; } = new List<GenusModel>();
+        public List<KingdomModel> Kingdom { get; private set; } = new List<KingdomModel>();
+        public List<SpeciesModel> Species { get; private set; } = new List<SpeciesModel>();
+        public bool IsLoading => Genus.Count == 0;
+        public bool ShowKingdom { get; private set; } = false;
 
         public GenusViewModel(IDataAccessProvider data, IConfiguration config, IGenusRepository genusRepository, IKingdomRepository kingdomRepository, ISpeciesRepository SpeciesRepository)
         {
@@ -47,7 +52,7 @@ namespace BlazorApp.ViewModels
             Species = await _SpeciesRepository.GetSpeciesListAsync();
         }
 
-        public async Task SwitchToKingdomViewAsync()
+        public async Task SwitchToKingdomViewAsync(GenusModel genus)
         {
             //todo: SwitchToKingdomViewAsync should change view to kingdon view and hide genus view
             throw new NotImplementedException();

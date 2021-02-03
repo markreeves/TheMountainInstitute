@@ -20,7 +20,7 @@
 </div>
 
 
-@if (_vm.Genus == null)
+@if (_vm.IsLoading)
 {
     <p><em>Loading...</em></p>
 }
@@ -31,7 +31,7 @@ else
             @foreach (var g in _vm.Genus)
             {
                 //todo: SwitchToKingdomViewAsync should change view to kingdon view and hiode genus view
-                <div class="col-sm jumbotron mx-1" @onclick="(_ => _vm.SwitchToKingdomViewAsync())">
+                <div class="col-sm jumbotron mx-1" @onclick="(_ => _vm.SwitchToKingdomViewAsync(g))">
                     <div class="media">
                         <img class="mr-3" src="/Images/NatureMapLichen.png" asp-append-version="true" width="80px" />
                         <div class="media-body">
@@ -43,27 +43,27 @@ else
             }
         </div>
     </div>
-    
-    
-    <div class="container">
+    @if (_vm.ShowKingdom)
+    {
+        <div class="container">
         <h1>Kingdom Select</h1>
-        <div class="row">
-            @foreach (var k in _vm.Kingdom)
-            {
-                <div class="col-sm jumbotron mx-1" @onclick="(_ => _vm.SwitchToKingdomViewAsync())">
-                    <div class="media">
-                        <img class="mr-3" src="/Images/NatureMapLichen.png" asp-append-version="true" width="80px" />
-                        <div class="media-body">
-                            <h5 class="mt-0">@k.KingdomName</h5>
-                            @k.KingdomIntro
+            <div class="row">
+                @foreach (var k in _vm.Kingdom)
+                {
+                    <div class="col-sm jumbotron mx-1" >
+                        <div class="media">
+                            <img class="mr-3" src="/Images/NatureMapLichen.png" asp-append-version="true" width="80px" />
+                            <div class="media-body">
+                                <h5 class="mt-0">@k.KingdomName</h5>
+                                @k.KingdomIntro
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
+                }
             </div>
         </div>
-
-        }
+    }
+}
 
 <div class="container">
     <h1>Species List</h1>
@@ -73,7 +73,7 @@ else
     }
 </div>
 
-        @code {
-
+@code
+{
     protected override async Task OnInitializedAsync() => await _vm.OnInitializedAsync();
-        }
+}
