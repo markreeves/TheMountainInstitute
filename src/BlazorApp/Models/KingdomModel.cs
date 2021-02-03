@@ -8,6 +8,8 @@ namespace BlazorApp.Models
         public string KingdomIntro { get; set; } = string.Empty;
         public string KingImageUrl { get; set; } = string.Empty;
 
+        public string KingdomGenusType { get; set; } = string.Empty;
+
         //Todo: Add image support and initialize to empty byte array
         //public byte[] KingdomImage { get; set; }
 

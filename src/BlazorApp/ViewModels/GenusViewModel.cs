@@ -1,11 +1,10 @@
-using Microsoft.Extensions.Configuration;
-using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Threading.Tasks;
 
 using BlazorApp.Models;
 using BlazorApp.DataAccess;
-using DataLibrary;
 
 namespace BlazorApp.ViewModels
 {
@@ -20,7 +19,7 @@ namespace BlazorApp.ViewModels
 
         Task OnInitializedAsync();
         //todo: replace with IAsyncRelayCommand from the microsoft MVVM tool kit
-        Task SwitchToKingdomViewAsync(GenusModel genus);
+        void SwitchToKingdomViewAsync(GenusModel genus);
     }
 
     public class GenusViewModel : IGenusViewModel
@@ -28,6 +27,8 @@ namespace BlazorApp.ViewModels
         private readonly IGenusRepository _genusRepository;
         private readonly IKingdomRepository _KingdomRepository;
         private readonly ISpeciesRepository _SpeciesRepository;
+
+        private readonly List<KingdomModel> _allKingdoms = new List<KingdomModel>();
 
         public List<GenusModel> Genus { get; private set; } = new List<GenusModel>();
         public List<KingdomModel> Kingdom { get; private set; } = new List<KingdomModel>();
@@ -47,12 +48,13 @@ namespace BlazorApp.ViewModels
             Genus = await _genusRepository.GetGenusListAsync();
             Kingdom = await _KingdomRepository.GetKingdomListAsync();
             Species = await _SpeciesRepository.GetSpeciesListAsync();
+            _allKingdoms.AddRange(Kingdom);
         }
 
-        public async Task SwitchToKingdomViewAsync(GenusModel genus)
+        public void SwitchToKingdomViewAsync(GenusModel genus)
         {
-            //todo: SwitchToKingdomViewAsync should change view to kingdon view and hide genus view
-            throw new NotImplementedException();
+            //Kingdom = _allKingdoms.Where(x => x.KingdomGenusType == genus.GenusName).ToList();
+            ShowKingdom = true;
         }
     }
 }
