@@ -25,8 +25,6 @@ namespace BlazorApp.ViewModels
 
     public class GenusViewModel : IGenusViewModel
     {
-        private readonly IDataAccessProvider _data;
-        private readonly IConfiguration _config;
         private readonly IGenusRepository _genusRepository;
         private readonly IKingdomRepository _KingdomRepository;
         private readonly ISpeciesRepository _SpeciesRepository;
@@ -37,14 +35,13 @@ namespace BlazorApp.ViewModels
         public bool IsLoading => Genus.Count == 0;
         public bool ShowKingdom { get; private set; } = false;
 
-        public GenusViewModel(IDataAccessProvider data, IConfiguration config, IGenusRepository genusRepository, IKingdomRepository kingdomRepository, ISpeciesRepository SpeciesRepository)
+        public GenusViewModel(IGenusRepository genusRepository, IKingdomRepository kingdomRepository, ISpeciesRepository SpeciesRepository)
         {
-            _data = data;
-            _config = config;
             _genusRepository = genusRepository;
             _KingdomRepository = kingdomRepository;
             _SpeciesRepository = SpeciesRepository;
         }
+
         public async Task OnInitializedAsync()
         {
             Genus = await _genusRepository.GetGenusListAsync();
