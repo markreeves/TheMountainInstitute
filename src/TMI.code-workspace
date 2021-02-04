@@ -13,6 +13,7 @@
 		  	"**/obj/": true,
 			"**/.vs/": true,
 			"**/node_modules/": true,
+			"**/azurite/": true,
 			"**/*.csproj.user": true
 		},
 		"cSpell.language": "en-GB",
@@ -25,7 +26,8 @@
 			"**/vscode-extension/**",
 			"**/.git/objects/**",
 			".vscode",
-			"**/TMI.code-workspace"
+			"**/TMI.code-workspace",
+			"**/azurite/**"
 		],
 		"cSpell.words": [
 			"Admin",

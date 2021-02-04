@@ -1,0 +1,14 @@
+{
+  "name": "themountaininstitute",
+  "version": "1.0.0",
+  "description": "https://github.com/markreeves/TheMountainInstitute",
+  "author": "https://github.com/markreeves",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storage": "azurite --location ../../azurite"
+  },
+  "devDependencies": {
+    "azurite": "^2.7.1"
+  }
+}
