@@ -54,10 +54,10 @@
 			"**/*.min.*",
 			"**/*.map"
 		],
-		"editor.fontFamily": "'Fira Code','Consolas','monospace'",
+		"editor.fontFamily": "'Fira Code','FiraCode NF','Consolas','monospace'",
 		"editor.fontWeight": "400",
 		"editor.fontSize": 12,
-		"terminal.integrated.fontFamily": "'Fira Code','Consolas','monospace'",
+		"terminal.integrated.fontFamily": "'Fira Code','FiraCode NF','Consolas','monospace'",
 		"terminal.integrated.fontWeight": "400",
 		"terminal.integrated.fontSize": 12,
 		"editor.fontLigatures": true,
