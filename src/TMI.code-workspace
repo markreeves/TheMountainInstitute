@@ -62,6 +62,7 @@
 		"terminal.integrated.fontSize": 12,
 		"editor.fontLigatures": true,
 		"workbench.colorCustomizations": { "gitlens.trailingLineForegroundColor": "#bbbaba" },
+		"dotnet-test-explorer.testProjectPath": "**/*Test.csproj",
 		"trailing-spaces.syntaxIgnore": ["markdown"],
 	},
 	"extensions": {
