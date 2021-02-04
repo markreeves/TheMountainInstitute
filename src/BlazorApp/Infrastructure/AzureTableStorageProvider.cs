@@ -23,8 +23,8 @@ namespace BlazorApp.Infrastructure
 
             var testGenus = new GenusTableEntity()
             {
-                Name = "Test thingy",
-                Intro = "The first thingy of its type in the table"
+                Name = "Test thingy 2",
+                Intro = "Another thingy of its type in the table"
             };
             _ = await table.ExecuteAsync(TableOperation.Insert(testGenus));
         }
@@ -36,10 +36,9 @@ namespace BlazorApp.Infrastructure
         {
             this.PartitionKey = "UnModerated";
             this.RowKey = System.Guid.NewGuid().ToString();
-            this.GenusID = this.RowKey;
         }
 
-        public string GenusID { get; set; } = string.Empty;
+        public string GenusID { get { return RowKey; } }
         public string Name { get; set; } = string.Empty;
         public string Intro { get; set; } = string.Empty;
         public string IntroImageUrl { get; set; } = string.Empty;
