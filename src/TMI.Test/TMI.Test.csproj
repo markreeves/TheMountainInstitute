@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-BlazorApp-27B5665A-CD7E-411C-A9D7-7E10D2B65A00</UserSecretsId>
     <nullable>enable</nullable>
     <IsPackable>false</IsPackable>
   </PropertyGroup>

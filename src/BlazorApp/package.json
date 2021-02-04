@@ -5,6 +5,7 @@
   "author": "https://github.com/markreeves",
   "license": "MIT",
   "scripts": {
+    "start": "npm run storage",
     "storage": "azurite --location ../../azurite"
   },
   "devDependencies": {
