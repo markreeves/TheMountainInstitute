@@ -66,6 +66,8 @@
 	},
 	"extensions": {
 		"recommendations": [
+			"ms-azuretools.vscode-azurestorage",
+			"ms-vscode.azure-account",
 			"formulahendry.dotnet-test-explorer",
 			"coenraads.bracket-pair-colorizer",
 			"ms-dotnettools.csharp",
