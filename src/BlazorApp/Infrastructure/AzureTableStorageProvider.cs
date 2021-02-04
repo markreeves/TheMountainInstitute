@@ -38,7 +38,6 @@ namespace BlazorApp.Infrastructure
             this.RowKey = System.Guid.NewGuid().ToString();
         }
 
-        public string GenusID { get { return RowKey; } }
         public string Name { get; set; } = string.Empty;
         public string Intro { get; set; } = string.Empty;
         public string IntroImageUrl { get; set; } = string.Empty;
